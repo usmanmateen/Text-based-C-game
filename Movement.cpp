@@ -161,7 +161,7 @@ int main() {
 }
 //Room room1("Living Room", "A cozy living room with a fireplace and comfortable chairs.");
 
-
+// new
 //Room room1("Living Room", "A cozy living room with a fireplace and comfortable chairs.");
 //Hallway hallway1("Main Hallway", "A long hallway connecting the various rooms in the house.");
 //Forest forest("Mystic Forest", "A dense forest with tall trees and a variety of wildlife.");
