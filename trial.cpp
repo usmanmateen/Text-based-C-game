@@ -107,3 +107,7 @@ class TownSquare {
         string description;
         string townSquareDescriptions[3] = {"The center of the town with a fountain and shops surrounding it.", 
                                             "A bustling town square with street performers and vendors selling their"};
+
+
+
+
