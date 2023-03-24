@@ -153,22 +153,28 @@ class TownSquare : public map {
 
 int main() {
     srand(time(0));
-    // Create instances of the different map locations
+    // Create instances of the map locations
     Room room("Room");
     Hallway hallway("Long hallway");
     Forest forest("Sppoky forest");
     Patio patio("Open sapce");
     TownSquare townSquare("TownSquare");
 
-    // Initialize the current location to the starting location
+    // Set current location to room to start the game
     map* currentLocation = &room;
-    cout << "You are currently in the " << currentLocation->getLocation() << endl;
+    cout << "You are currently in the " << currentLocation->getLocation()<<". If at any given time you want to move back to room just type room" << endl;
+    cout << "You will have to choose one of the following if you want to change location"<< endl;
+    cout << "hallway"<< endl;
+    cout << "townsquare"<<endl;
+    cout << "forest"<<endl;
+    cout << "patio"<<endl;  
+   
 
-    // Loop to prompt the user for their desired location and move them there
+    // Loop to move to a location on user's command
     while (true) {
-        // Prompt the user for their desired location
+        cout << "Enter your choice: ";
         string destination;
-        cout << "Enter a location to move to (or 'quit' to stop): ";
+        cout << "enter a location to move to (or 'quit' to stop): ";
         cin >> destination;
         if (destination == "quit") {
             break;
@@ -183,6 +189,8 @@ int main() {
             currentLocation = &patio;
         } else if (destination == "townsquare") {
             currentLocation = &townSquare;
+        }else if (destination == "room") {
+            currentLocation = &room;    
         } else {
             cout << "Invalid destination." << endl;
             continue;
