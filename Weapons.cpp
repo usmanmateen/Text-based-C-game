@@ -52,6 +52,18 @@ vector<vector<int> > backpack::bag;
 vector<string> backpack::itemNames;
 int backpack::item_equiped = 0;
 
+char switchItem(vector<weapon>& weapons, vector<healing>& healings){
+    cout << "Do you want to switch to a weapon or healing item? Enter 'w' for weapon or 'h' for healing: ";
+    char choice;
+    cin >> choice;
+    while (choice != 'w' && choice != 'h') {
+        cout << "Not a valid choice. Please enter 'w' for weapon or 'h' for healing: ";
+        cin >> choice;
+    }
+    return choice;
+
+}
+
 int selectWeapon(vector<weapon>& weapons) {
     cout << "Weapons in bagpack:" << endl;
     for (int i = 0; i < weapons.size(); ++i ) {
@@ -76,27 +88,16 @@ int selectHealing(vector<healing>& healings) {
     cin >> choice;
 
     while (choice < 1 || choice > healings.size()) {
-        cout << "Invalid choice. Please enter a number between 1 and " << healings.size() << ": ";
+        cout << "Void choice. Please enter a number between 1 and " << healings.size() << ": ";
         cin >> choice;
     }
     return choice-1;
 }
 
-char switchItem(vector<weapon>& weapons, vector<healing>& healings){
-    cout << "Do you want to switch to a weapon or healing item? Enter 'w' for weapon or 'h' for healing: ";
-    char choice;
-    cin >> choice;
-    while (choice != 'w' && choice != 'h') {
-        cout << "Invalid choice. Please enter 'w' for weapon or 'h' for healing: ";
-        cin >> choice;
-    }
-    return choice;
-}
+
 
 int main() {
 
-
-    
     vector<weapon> weapons;
     weapons.push_back(weapon(20, 2, "Sword"));
     weapons.push_back(weapon(60, 10, "Shotgun"));
@@ -130,10 +131,7 @@ int main() {
         cout << "You have chosen the " << chosenHealing.type << "!" << endl;
         cout << "Restores: " << chosenHealing.health << " health" << endl;
     }
-
-   
-
-
+    
     if (choice == 'w') {
         int itemIndex = selectWeapon(weapons);
         weapon chosenWeapon = weapons[itemIndex];
@@ -146,9 +144,7 @@ int main() {
         healing chosenHealing = healings[itemIndex];
         cout << "You have switched to the " << chosenHealing.type << "!" << endl;
         cout << "Restores: " << chosenHealing.health << " health" << endl;
-    }
-    
-
+    }   
 
     return 0;
 
