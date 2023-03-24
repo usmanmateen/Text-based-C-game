@@ -119,18 +119,7 @@ int main() {
 
 
     int itemIndex;
-    if (backpack::item_equiped == 0) {
-        itemIndex = selectWeapon(weapons);
-        weapon chosenWeapon = weapons[itemIndex];
-        cout << "You have chosen the " << chosenWeapon.type << "!" << endl;
-        cout << "Damage: " << chosenWeapon.damage << endl;
-        cout << "Range: " << chosenWeapon.range << endl;
-    } else {
-        itemIndex = selectHealing(healings);
-        healing chosenHealing = healings[itemIndex];
-        cout << "You have chosen the " << chosenHealing.type << "!" << endl;
-        cout << "Restores: " << chosenHealing.health << " health" << endl;
-    }
+    
     
     if (choice == 'w') {
         int itemIndex = selectWeapon(weapons);
