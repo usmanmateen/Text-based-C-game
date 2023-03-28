@@ -22,6 +22,9 @@ class map {
         virtual string getDescription() {
             return "Default description";
         }
+        virtual string getascii(){
+            return "";
+        }
 
         void move() {
             string destination;
@@ -36,13 +39,14 @@ class Hallway : public map {
     private:
         string name;
         string hDescription;
-       
+        string ascii;
     public:
 
         Hallway(string n) :map(n) {
             this->name = n;
             
             hDescription = hallwayDescriptions[rand()%5];
+            ascii = hallwayAscii[rand()%5];
         }
 
         string getName() {
@@ -52,6 +56,9 @@ class Hallway : public map {
         string getDescription() {
             return hDescription;
         }
+        string getascii(){
+            return ascii;
+        }
 };
 
 
@@ -59,13 +66,14 @@ class Forest :public map {
     private:
         string name;
         string fDescription;
-        
+        string ascii;
 
     public:
         Forest(string n) :map(n) {
             this->name = n;
             
             fDescription = forestDescriptions[rand() % 5];
+            ascii = forestAscii[rand()%5];
         }
 
         string getName() {
@@ -75,12 +83,16 @@ class Forest :public map {
         string getDescription() {
             return fDescription;
         }
+        string getascii(){
+            return ascii;
+        }
 };
 
 class Room : public map {
     private:
         string name;
         string rDescription;
+        string ascii;
 
 
 
@@ -90,6 +102,7 @@ class Room : public map {
             
             
             rDescription = roomDescriptions[rand() % 5];
+            ascii = roomAscii[rand() % 5];
         }
 
         string getName() {
@@ -99,13 +112,16 @@ class Room : public map {
         string getDescription() {
             return rDescription;
         }
+        string getascii(){
+            return ascii;
+        }
 };
 
 class Patio :public map {
     private:
         string name;
         string pDescription;
-        
+        string ascii;
 
 
 
@@ -116,6 +132,7 @@ class Patio :public map {
             
 
             pDescription = patioDescriptions[rand() % 4]; 
+            ascii = patioAscii[rand() % 4];
         }
 
         string getName() {
@@ -125,13 +142,16 @@ class Patio :public map {
         string getDescription() {
             return pDescription;
         }
+        string getascii(){
+            return ascii;
+        }
 };
 
 class TownSquare : public map {
     private:
         string name;
         string tDescription;
-        
+        string ascii;
 
 
     public:
@@ -139,6 +159,7 @@ class TownSquare : public map {
             this-> name = n;
             
             tDescription=townSquareDescriptions[rand() % 5];
+            ascii = townSquareAscii[rand() % 5];
         }
 
         string getName() {
@@ -147,6 +168,9 @@ class TownSquare : public map {
 
         string getDescription() {
             return tDescription;
+        }
+        string getascii(){
+            return ascii;
         }
 };
 
@@ -162,12 +186,12 @@ int main() {
 
     // Set current location to room to start the game
     map* currentLocation = &room;
-    cout << "You are currently in the " << currentLocation->getLocation()<<". If at any given time you want to move back to room just type room" << endl;
-    cout << "You will have to choose one of the following if you want to change location"<< endl;
+    cout << "You are currently in the " << currentLocation->getLocation()<<"."<<endl<<"If at any given time you want to move back to room just type room." << endl;
+    cout << "You will have to choose one of the following if you want to change location"<< endl<<endl;
     cout << "hallway"<< endl;
     cout << "townsquare"<<endl;
     cout << "forest"<<endl;
-    cout << "patio"<<endl;  
+    cout << "patio"<<endl<<endl;  
    
 
     // Loop to move to a location on user's command
@@ -199,6 +223,7 @@ int main() {
         // Output the description of the new location
         cout << "You have moved to the " << currentLocation->getLocation() << "." << endl;
         cout << currentLocation->getDescription() << endl;
+        cout<< currentLocation->getascii()<<endl;
     }
 
     return 0;
